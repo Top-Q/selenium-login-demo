@@ -1,10 +1,10 @@
-package infra.po.nobot;
+package infra.po.bot;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class RegisterPage extends AbstractPage{
+public class RegisterPage extends AbstractPage {
 
     private static final By firstNameBy = By.id("firstName");
     private static final By lastNameBy = By.name("lastName");
@@ -13,34 +13,34 @@ public class RegisterPage extends AbstractPage{
     private static final By registerBy = By.cssSelector("button.btn-primary");
 
 
-    public RegisterPage(WebDriver driver) {
-        super(driver);
+    public RegisterPage(ActionBot bot) {
+        super(bot);
     }
 
     public RegisterPage typeToFirstNameTb(String firstName) {
-        driver.findElement(firstNameBy).sendKeys(firstName);
+        bot.sendKeysToElementLocatedBy(firstNameBy, firstName);
         return this;
     }
 
     public RegisterPage typeToLastNameTb(String lastName){
-        driver.findElement(lastNameBy).sendKeys(lastName);
+        bot.sendKeysToElementLocatedBy(lastNameBy, lastName);
         return this;
     }
 
     public RegisterPage typeToUserNameTb(String userName){
-        driver.findElement(usernameBy).sendKeys(userName);
+        bot.sendKeysToElementLocatedBy(usernameBy, userName);
         return this;
     }
 
     public RegisterPage typeToPasswordTb(String password){
-        driver.findElement(passwordBy).sendKeys(password);
+        bot.sendKeysToElementLocatedBy(passwordBy, password);
         return this;
     }
 
     public LoginPage clickOnRegisterBtnAndGoToLoginPage(){
-        driver.findElement(registerBy).click();
-        wait.until(ExpectedConditions.urlContains("login"));
-        return new LoginPage(driver);
+        bot.clickOnElementLocatedBy(registerBy);
+        bot.waitForUrlToContain("login");
+        return new LoginPage(bot);
     }
 
     public LoginPage doRegistration(String firstName, String lastName, String userName, String password) {
@@ -48,6 +48,6 @@ public class RegisterPage extends AbstractPage{
         typeToLastNameTb(lastName);
         typeToUserNameTb(userName);
         typeToPasswordTb(password);
-        return new LoginPage(driver);
+        return new LoginPage(bot);
     }
 }

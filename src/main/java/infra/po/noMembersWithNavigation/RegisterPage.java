@@ -1,10 +1,10 @@
-package infra.po.nobot;
+package infra.po.noMembersWithNavigation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class RegisterPage extends AbstractPage{
+public class RegisterPage extends AbstractPage {
 
     private static final By firstNameBy = By.id("firstName");
     private static final By lastNameBy = By.name("lastName");
@@ -17,17 +17,17 @@ public class RegisterPage extends AbstractPage{
         super(driver);
     }
 
-    public RegisterPage typeToFirstNameTb(String firstName) {
+    public RegisterPage typeToFirstName(String firstName) {
         driver.findElement(firstNameBy).sendKeys(firstName);
         return this;
     }
 
-    public RegisterPage typeToLastNameTb(String lastName){
+    public RegisterPage typeToLastName(String lastName){
         driver.findElement(lastNameBy).sendKeys(lastName);
         return this;
     }
 
-    public RegisterPage typeToUserNameTb(String userName){
+    public RegisterPage typeToUserName(String userName){
         driver.findElement(usernameBy).sendKeys(userName);
         return this;
     }
@@ -43,11 +43,7 @@ public class RegisterPage extends AbstractPage{
         return new LoginPage(driver);
     }
 
-    public LoginPage doRegistration(String firstName, String lastName, String userName, String password) {
-        typeToFirstNameTb(firstName);
-        typeToLastNameTb(lastName);
-        typeToUserNameTb(userName);
-        typeToPasswordTb(password);
+    public LoginPage clickOnRegisterBtn() {
         return new LoginPage(driver);
     }
 }

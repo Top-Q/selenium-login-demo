@@ -5,7 +5,7 @@ import infra.po.nobot.LoginPage;
 import infra.po.nobot.RegisterPage;
 import org.testng.annotations.Test;
 
-public class TestRegisterAndLoginPO extends AbstractTest{
+public class TestRegisterAndLoginFluent extends AbstractTest{
 
     private static final String FIRST_NAME = "Itai";
     private static final String LAST_NAME = "Agmon";
@@ -20,9 +20,9 @@ public class TestRegisterAndLoginPO extends AbstractTest{
 
         String userName = FIRST_NAME + String.valueOf(System.currentTimeMillis());
         loginPage = registerPage.
-                typeToFirstName(FIRST_NAME).
-                typeToLastName(LAST_NAME).
-                typeToUserName(userName).
+                typeToFirstNameTb(FIRST_NAME).
+                typeToLastNameTb(LAST_NAME).
+                typeToUserNameTb(userName).
                 typeToPasswordTb(PASSWORD).
                 clickOnRegisterBtnAndGoToLoginPage();
 

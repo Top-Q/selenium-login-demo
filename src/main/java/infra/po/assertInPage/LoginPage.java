@@ -1,5 +1,6 @@
-package infra.po.factory;
+package infra.po.assertInPage;
 
+import infra.po.factory.RegisterPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,11 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    protected void assertInPage() {
+        wait.until(ExpectedConditions.visibilityOf(userNameBy));
     }
 
     public void typeToUserNameTb(String userName){

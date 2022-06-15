@@ -1,4 +1,4 @@
-package infra.po.factory;
+package infra.po.noMembersWithNavigation;
 
 import infra.po.nobot.AbstractPage;
 import infra.po.nobot.LoginPage;
@@ -10,7 +10,10 @@ public class HomePage extends AbstractPage {
         super(driver);
     }
 
-    public infra.po.nobot.LoginPage clickOnLogoutBtnAndGoToLoginPage() {
+    public LoginPage clickOnLogoutBtnAndGoToLoginPage() {
         return new LoginPage(driver);
+    }
+
+    public void clickOnLogoutBtn() {
     }
 }

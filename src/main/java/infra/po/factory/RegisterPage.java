@@ -1,5 +1,7 @@
 package infra.po.factory;
 
+import infra.po.nobot.AbstractPage;
+import infra.po.nobot.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,7 +39,7 @@ public class RegisterPage extends AbstractPage {
         return this;
     }
 
-    public LoginPage clickOnRegisterBtnAndGoToLoginPage(){
+    public infra.po.nobot.LoginPage clickOnRegisterBtnAndGoToLoginPage(){
         driver.findElement(registerBy).click();
         wait.until(ExpectedConditions.urlContains("login"));
         return new LoginPage(driver);
